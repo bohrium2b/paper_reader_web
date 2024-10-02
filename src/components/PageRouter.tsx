@@ -12,8 +12,10 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { ComponentList } from "./ComponentList";
+import {ErrorPage} from "./ErrorPage";
 
-type ComponentJSON = {
+export type ComponentJSON = {
     name: string,
     paper: number,
     papers: Array<PageProps>,
@@ -36,6 +38,9 @@ export function PageRouter(json: {json: Array<ComponentJSON>}) {
                 }
             })
         } )
+        if (returnvalue === "Not found") {
+            throw new Response("Not Found", { status: 404 });
+        }
         return returnvalue;
         // return ("File not found")
     }
@@ -44,12 +49,19 @@ export function PageRouter(json: {json: Array<ComponentJSON>}) {
         {
             path: "/",
             element: <RootRoute />,
+            errorElement: <ErrorPage />,
             children: [
                 {
                     path: "papers/:filename",
                     element: <PageWrapper />,
                     loader: loadpaper // @ts-ignore
+                },
+                {
+                    // Route if no path provided
+                    path: "",
+                    element: <ComponentList json={json.json}/>
                 }
+
             ]
         }
     ])

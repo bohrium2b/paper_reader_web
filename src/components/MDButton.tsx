@@ -14,7 +14,7 @@ export type { MdFilledTonalButton } from "@material/web/button/filled-tonal-butt
 export type { MdTextButton } from "@material/web/button/text-button";
 
 
-
+// React components for all of the buttons
 export const FilledButton = createComponent({
   tagName: "md-filled-button",
   elementClass: MdFilledButton,
@@ -46,9 +46,26 @@ export const IconButton = createComponent({
   react: React,
 });
 
+// And a generic button that switches variants
+
+/*
+ * Type: MDButtonProps:
+ * -----
+ * Props for the MDButton.
+ * Children: the text of the button
+ * variant?: what type is this button? 
+ * Choose from:
+ * - text, where it is just text, no fill or outline
+ * - outlined, where there is an outline around it
+ * - elevated, where the button has a shadow
+ * - filled, where it is filled with primary1
+ * - filledTonal, where it is filled with secondary
+ * onclick?: a function reference for when it is clicked.
+ */
+
 type MDButtonProps = {
   children: React.ReactNode,
-  variant?: "text" | "outlined" | "elevated" | "filled",
+  variant?: "text" | "outlined" | "elevated" | "filled" | "filledTonal",
   onClick?: () => void
 }
 
@@ -67,6 +84,9 @@ const MDButton = (props: MDButtonProps) => {
       break;
     case "outlined":
       Variant = OutlinedButton;
+      break;
+    case "filledTonal":
+      Variant = FilledTonalButton;
       break;
     default:
       Variant = FilledButton;
