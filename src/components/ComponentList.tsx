@@ -60,6 +60,7 @@ export const ComponentTable = (props: {papers: Array<PageProps>}) => {
                     <TableBody>
                         {props.papers
                             .filter((paper) => paper.papertype == 'qp')
+                            .filter((paper) => paper.status == 'success')
                             .map((paper) => {
                                 const msFilename = paper.filename.replace('_qp_', '_ms_');
                                 return (
@@ -84,7 +85,7 @@ export const ComponentTable = (props: {papers: Array<PageProps>}) => {
                                                 color="primary" 
                                                 component={Link} 
                                                 to={`/papers/${paper.filename}`}
-                                                style={{ marginRight: '8px' }}
+                                                style={{ marginRight: '8px', textDecoration: 'none', color: 'white' }}
                                             >
                                                 View QP
                                             </Button>
@@ -93,6 +94,7 @@ export const ComponentTable = (props: {papers: Array<PageProps>}) => {
                                                 color="secondary" 
                                                 component={Link} 
                                                 to={`/papers/${msFilename}`}
+                                                style={{ textDecoration: 'none', color: 'white' }}
                                             >
                                                 View MS
                                             </Button>

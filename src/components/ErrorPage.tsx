@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import {Button} from "@mui/material";
 
 export const ErrorPage: React.FC = () => {
     const navigate = useNavigate();
@@ -12,7 +13,9 @@ export const ErrorPage: React.FC = () => {
         <div style={styles.container}>
             <h1 style={styles.header}>404 - Page Not Found</h1>
             <p style={styles.message}>Sorry, the page you are looking for does not exist.</p>
-            <button style={styles.button} onClick={handleGoBack}>Go Back</button>
+            <Button variant="contained" color="primary" onClick={handleGoBack}>
+                Go Back
+            </Button>
         </div>
     );
 };

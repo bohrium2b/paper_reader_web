@@ -24,9 +24,8 @@ export type ComponentJSON = {
 }
 
 export function PageRouter(json: {json: Array<ComponentJSON>}) {
-    //@ts-expect-error
-    const loadpaper = async ({params}) => {
-        var returnvalue: PageProps | string = "Not found";
+    const loadpaper = async ({params}: { params: { filename?: string } }) => {
+        let returnvalue: PageProps | string = "Not found";
 
         if (!json || !Array.isArray(json.json)) {
             return (json)
@@ -41,7 +40,7 @@ export function PageRouter(json: {json: Array<ComponentJSON>}) {
         if (returnvalue === "Not found") {
             throw new Response("Not Found", { status: 404 });
         }
-        return returnvalue;
+        return {paper: returnvalue, json: json.json};
         // return ("File not found")
     }
 
@@ -53,8 +52,8 @@ export function PageRouter(json: {json: Array<ComponentJSON>}) {
             children: [
                 {
                     path: "papers/:filename",
-                    element: <PageWrapper />,
-                    loader: loadpaper // @ts-ignore
+                    element: <PageWrapper json={json.json} />,
+                    loader: loadpaper
                 },
                 {
                     // Route if no path provided
@@ -74,16 +73,29 @@ export function PageRouter(json: {json: Array<ComponentJSON>}) {
     )
 }
 
-const PageWrapper = () => {
+const PageWrapper: React.FC<{ json: Array<ComponentJSON> }> = ({ json }) => {
     console.log("Inside PageWrapper.")
-    //@ts-expect-error
-    const data: PageProps | string = useLoaderData(); 
-    if (data === "Not found") {
+    const data = useLoaderData() as {paper: PageProps | string; json: Array<ComponentJSON>};
+    if (data.paper === "Not found") {
         return (
             <div>Not Found</div>
         )
     }
-    return /*//@ts-expect-error*/ (
-        <Page filename={data.filename} key={data.filename} code={data.code} paper={data.paper} papertype={data.papertype} variant={data.variant} season={data.season} year={data.year}/>
+    if (!json) {
+        return (
+            <div>Loading...</div>
+        )
+    }
+    if (typeof data.paper === "string") {
+        return (
+            <div>Error: {data.paper}</div>
+        )
+    }
+    return (
+        <Page filename={data.paper.filename} key={data.paper.filename} code={data.paper.code} paper={data.paper.paper} papertype={data.paper.papertype} variant={data.paper.variant} season={data.paper.season} year={data.paper.year} papers={data.json}/>
     )
 }
+
+
+
+export default PageRouter;

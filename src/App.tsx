@@ -1,8 +1,11 @@
-import { PageRouter } from "./components/PageRouter";
 import * as React from 'react';
-import { CircularProgress } from "@mui/material";
+import { Box, CircularProgress } from "@mui/material";
 import {argbFromHex, themeFromSourceColor, applyTheme} from "@material/material-color-utilities";
-import {Worker} from "@react-pdf-viewer/core"
+import {Worker} from "@react-pdf-viewer/core";
+import {lazy} from 'react';
+import {Suspense} from 'react';
+
+const PageRouter = lazy(() => import('./components/PageRouter'));
 
 
 function App() {
@@ -27,17 +30,25 @@ function App() {
 
   if (!componentjson) {
     return (
-      <CircularProgress />
+      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <CircularProgress />
+      </Box>
     )
   }
   console.log("Received json.")
   
   return ( 
     <Worker workerUrl={workerUrl}>
-    <PageRouter
-    /*
-    //@ts-ignore */
-    json={componentjson} /> 
+      <Suspense fallback={
+        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+          <CircularProgress />
+        </Box>
+      }>
+        <PageRouter
+          /*
+          //@ts-ignore */
+          json={componentjson} />
+      </Suspense>
     </Worker>
   ) 
 }
