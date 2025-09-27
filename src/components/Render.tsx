@@ -1,7 +1,6 @@
-import { Viewer } from "@react-pdf-viewer/core";
 import type { PageChangeEvent } from "@react-pdf-viewer/core";
 import { useState } from "react";
-import { Grid2, Box, Toolbar, Typography } from "@mui/material";
+import { GridLegacy as Grid, Box, Toolbar, Typography } from "@mui/material";
 import ZoomInIcon from '@mui/icons-material/ZoomIn';
 import ZoomOutIcon from '@mui/icons-material/ZoomOut';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
@@ -9,7 +8,11 @@ import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import { IconButton } from "./MDButton";
 import useMeasure from "react-use-measure";
 import '@react-pdf-viewer/core/lib/styles/index.css';
+import { lazy, Suspense } from "react";
 
+const Viewer = lazy(() => import('@react-pdf-viewer/core').then(module => ({ default: module.Viewer })));
+
+// Import React PDF Viewer components
 import { zoomPlugin, RenderZoomInProps, RenderZoomOutProps, RenderCurrentScaleProps } from '@react-pdf-viewer/zoom';
 import { pageNavigationPlugin } from '@react-pdf-viewer/page-navigation';
 
@@ -35,17 +38,18 @@ export const Renderer = (props: RendererProps) => {
     const {GoToNextPage, GoToPreviousPage} = pageNavigationPluginInstance;
     return (
         <>
-            <Grid2 container spacing={2} ref={ref}>
-                <Grid2 size={12}>
+            <Grid container spacing={2} ref={ref}>
+                <Grid item xs={12}>
                     { /*<MDButton variant="filledTonal" onClick={() => { setpagescale(1) }}>Reset Zoom</MDButton>*/ }
-                </Grid2>
-                <Grid2 size={10} sx={{ overflowX: "auto", overflowY: "none" }}>
-                    {/* @ts-ignore */}
+                </Grid>
+                <Grid item xs={10} sx={{ overflowX: "auto", overflowY: "none" }}>
                     <Box sx={{overflow: "auto", width: "99%", height:"78vh"}}>
-                        <Viewer fileUrl={props.file} plugins={[zoomPluginInstance, pageNavigationPluginInstance]} onPageChange={(e: PageChangeEvent) => { setCurrentpage(e.currentPage + 1); /*pagenumberRef.current.value = e.currentPage + 1;*/ }} />
+                        <Suspense fallback={<Typography>Loading...</Typography>}>
+                            <Viewer fileUrl={props.file} plugins={[zoomPluginInstance, pageNavigationPluginInstance]} onPageChange={(e: PageChangeEvent) => { setCurrentpage(e.currentPage + 1); /*pagenumberRef.current.value = e.currentPage + 1;*/ }} />
+                        </Suspense>
                     </Box>
-                </Grid2>
-                <Grid2 size={2} position="sticky" alignItems="center" justifyContent="center">
+                </Grid>
+                <Grid item xs={2} position="sticky" alignItems="center" justifyContent="center">
                     <Box position="sticky" top="0" alignItems="center">
                         <Toolbar />
                         <div style={{ height: "10px" }}></div>
@@ -86,8 +90,8 @@ export const Renderer = (props: RendererProps) => {
                         </GoToNextPage>
                     </Box>
 
-                </Grid2>
-            </Grid2>
+                </Grid>
+            </Grid>
 
         </>
 

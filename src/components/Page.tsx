@@ -1,4 +1,3 @@
-import { Renderer } from './Render';
 import { Typography, Button, Box, Switch } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { ComponentJSON } from './PageRouter';
@@ -6,6 +5,10 @@ import React from 'react';
 import {Select} from "@mui/material";
 import {MenuItem} from "@mui/material";
 import {Home} from "@mui/icons-material";
+import {lazy, Suspense} from "react";
+import Skeleton from "@mui/material/Skeleton";
+
+const Renderer = lazy(() => import('./Render').then(module => ({ default: module.Renderer || module })));
 
 
 export type StatusType = {
@@ -200,8 +203,9 @@ export const Page = (props: PageFancyProps) => {
                     )}
                 </Box>
             </Box>
-
-            <Renderer key={props.filename} file={props.filename} />
+            <Suspense fallback={<Skeleton variant="rectangular" width="100%" height={600} />}>
+                <Renderer key={props.filename} file={props.filename} />
+            </Suspense>
         </>
     )
 }
