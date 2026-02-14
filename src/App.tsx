@@ -9,7 +9,7 @@ const PageRouter = lazy(() => import('./components/PageRouter'));
 
 
 function App() {
-  const theme = themeFromSourceColor(argbFromHex("#1E93AB"));
+  const theme = themeFromSourceColor(argbFromHex("#E62727"));
   applyTheme(theme, {target: document.body});
   const [componentjson, setJson] = React.useState(null);
   const workerUrl = new URL(

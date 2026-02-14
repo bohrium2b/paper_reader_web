@@ -75,7 +75,7 @@ export const Renderer = (props: RendererProps) => {
                                 )
                             }
                         </GoToPreviousPage>
-                         <br />
+                         <Box sx={{height: 0, padding: 1}} />
                         {/*<Box display="flex" sx={{ verticalAlign: "middle", alignItems: "center" }}><TextField inputRef={pagenumberRef} variant="standard" defaultValue={currentpage ? currentpage : 1} onKeyDown={(event) => {
                             if (event.key == "Enter") { //@ts-ignore
                                 setCurrentpage(parseInt(pagenumberRef.current?.value ? pagenumberRef.current?.value : "1"));
