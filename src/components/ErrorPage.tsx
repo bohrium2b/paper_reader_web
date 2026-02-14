@@ -1,48 +1,39 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import {Button} from "@mui/material";
+import {Button, Box, Typography} from "@mui/material";
+import PageNavigator from './PageNavigator';
+import { Home } from '@mui/icons-material';
+import { ComponentJSON } from './PageRouter';
 
-export const ErrorPage: React.FC = () => {
+interface ErrorPageProps {
+    papers: Array<ComponentJSON>;
+}
+
+export const ErrorPage: React.FC<ErrorPageProps> = ({ papers }) => {
     const navigate = useNavigate();
 
     const handleGoBack = () => {
-        navigate(-1);
+        navigate("/");
     };
 
     return (
-        <div style={styles.container}>
-            <h1 style={styles.header}>404 - Page Not Found</h1>
-            <p style={styles.message}>Sorry, the page you are looking for does not exist.</p>
-            <Button variant="contained" color="primary" onClick={handleGoBack}>
-                Go Back
-            </Button>
-        </div>
+        <Box sx={{ marginLeft: "5px" }}>
+            <PageNavigator papers={papers} code={papers[0].papers[0].code} />
+            <Box textAlign="center" mt={5}>
+                <Typography variant="h3" color="error" gutterBottom>
+                    Oops! Something went wrong.
+                </Typography>
+                <Typography variant="h6" gutterBottom>
+                    The page you are looking for does not exist or an error occurred.
+                </Typography>
+                <Button variant="contained" color="primary" onClick={handleGoBack} style={{ marginTop: '20px' }} startIcon={<Home />}>
+                    Go Back
+                </Button>
+            </Box>
+        </Box>
     );
 };
 
-const styles = {
-    container: {
-        display: 'flex',
-        flexDirection: 'column' as 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: '100vh',
-        textAlign: 'center' as 'center',
-        backgroundColor: '#f8f8f8',
-    },
-    header: {
-        fontSize: '3rem',
-        marginBottom: '1rem',
-    },
-    message: {
-        fontSize: '1.5rem',
-        marginBottom: '2rem',
-    },
-    button: {
-        padding: '0.5rem 1rem',
-        fontSize: '1rem',
-        cursor: 'pointer',
-    },
-};
+
 
 export default ErrorPage;

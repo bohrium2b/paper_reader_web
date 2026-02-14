@@ -250,6 +250,111 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@embedpdf/core@npm:^1.3.16":
+  version: 1.3.16
+  resolution: "@embedpdf/core@npm:1.3.16"
+  dependencies:
+    "@embedpdf/engines": "npm:1.3.16"
+    "@embedpdf/models": "npm:1.3.16"
+  peerDependencies:
+    preact: ^10.26.4
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    vue: ">=3.2.0"
+  checksum: 10c0/8c84e6722fdca86cf1381396168b09bc191eb575ea6f216c5d3dd03cc18c00ec65d8b394b0f0d102260a1d2a842ae9fb14eb9b15fdd5d9265e678183fa3d8a13
+  languageName: node
+  linkType: hard
+
+"@embedpdf/engines@npm:1.3.16, @embedpdf/engines@npm:^1.3.16":
+  version: 1.3.16
+  resolution: "@embedpdf/engines@npm:1.3.16"
+  dependencies:
+    "@embedpdf/models": "npm:1.3.16"
+    "@embedpdf/pdfium": "npm:1.3.16"
+  peerDependencies:
+    preact: ^10.26.4
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    vue: ">=3.2.0"
+  checksum: 10c0/fb21a86689c31a1af776ee0ab7a117f5cb763c271e747a457637ecd060065bef1f665ede05da9e8df7299ab7f9c2a5d46799d016665a56a2246734ef657965bf
+  languageName: node
+  linkType: hard
+
+"@embedpdf/models@npm:1.3.16":
+  version: 1.3.16
+  resolution: "@embedpdf/models@npm:1.3.16"
+  checksum: 10c0/462a8ba80484f9aacabbac9689b302f778ad6843bee2d0b18a9a2d9c58299898d8787209dbe4e3ced77d7e9db4afd20919327eb48d2c47e54230ff21f64ca959
+  languageName: node
+  linkType: hard
+
+"@embedpdf/pdfium@npm:1.3.16":
+  version: 1.3.16
+  resolution: "@embedpdf/pdfium@npm:1.3.16"
+  checksum: 10c0/f6330dd0f78f8643082b681252d54628a18d6aacd8bc743ee2bfbd7b1093fb0ca6646b8d0c0a6580367b373a7cf279c78295d5e8aebf42e1f072fa273211e3cf
+  languageName: node
+  linkType: hard
+
+"@embedpdf/plugin-loader@npm:^1.3.16":
+  version: 1.3.16
+  resolution: "@embedpdf/plugin-loader@npm:1.3.16"
+  dependencies:
+    "@embedpdf/models": "npm:1.3.16"
+  peerDependencies:
+    "@embedpdf/core": 1.3.16
+    preact: ^10.26.4
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    vue: ">=3.2.0"
+  checksum: 10c0/7cf3ebd87889163700946cfa69a0ea20aa98512df54df02db0664925b23ea11d24ddb29a2f76752a799eedec0b58a971e688bc7b0e04c190a7ef4f38655233d1
+  languageName: node
+  linkType: hard
+
+"@embedpdf/plugin-render@npm:^1.3.16":
+  version: 1.3.16
+  resolution: "@embedpdf/plugin-render@npm:1.3.16"
+  dependencies:
+    "@embedpdf/models": "npm:1.3.16"
+  peerDependencies:
+    "@embedpdf/core": 1.3.16
+    preact: ^10.26.4
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    vue: ">=3.2.0"
+  checksum: 10c0/b0a9228f70e02d4a3029fefb201fde62483261f474127195c3ada01eff4a110add1b79a60d353cc3071ba72b3d6323d95d3355e5322e143aaaba50cbe6c70baa
+  languageName: node
+  linkType: hard
+
+"@embedpdf/plugin-scroll@npm:^1.3.16":
+  version: 1.3.16
+  resolution: "@embedpdf/plugin-scroll@npm:1.3.16"
+  dependencies:
+    "@embedpdf/models": "npm:1.3.16"
+  peerDependencies:
+    "@embedpdf/core": 1.3.16
+    "@embedpdf/plugin-viewport": 1.3.16
+    preact: ^10.26.4
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    vue: ">=3.2.0"
+  checksum: 10c0/131b51af63573b0b6bc004157f2cd2e922de94e72a6f60328699834a175ad0e236468463591313f156ab66dc7237aec90f30258cafc493be14f9d9c70845ca20
+  languageName: node
+  linkType: hard
+
+"@embedpdf/plugin-viewport@npm:^1.3.16":
+  version: 1.3.16
+  resolution: "@embedpdf/plugin-viewport@npm:1.3.16"
+  dependencies:
+    "@embedpdf/models": "npm:1.3.16"
+  peerDependencies:
+    "@embedpdf/core": 1.3.16
+    preact: ^10.26.4
+    react: ">=16.8.0"
+    react-dom: ">=16.8.0"
+    vue: ">=3.2.0"
+  checksum: 10c0/af089970682fbeff319df16397d39e7211122be77d1bf3c9bded5ccdeb7136332d03559604e3540ded62522c5d34546ab61e9d99678ff2a3670f8a157aaa01d2
+  languageName: node
+  linkType: hard
+
 "@emnapi/core@npm:^1.4.3, @emnapi/core@npm:^1.4.5":
   version: 1.5.0
   resolution: "@emnapi/core@npm:1.5.0"
@@ -3837,6 +3942,12 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "react_pdfreader@workspace:."
   dependencies:
+    "@embedpdf/core": "npm:^1.3.16"
+    "@embedpdf/engines": "npm:^1.3.16"
+    "@embedpdf/plugin-loader": "npm:^1.3.16"
+    "@embedpdf/plugin-render": "npm:^1.3.16"
+    "@embedpdf/plugin-scroll": "npm:^1.3.16"
+    "@embedpdf/plugin-viewport": "npm:^1.3.16"
     "@emotion/react": "npm:^11.13.3"
     "@emotion/styled": "npm:^11.13.0"
     "@eslint/js": "npm:^9.9.0"

@@ -1,4 +1,4 @@
-
+import { PageProps } from './components/Page';
 type Paper = {
     code: string;
     paperName: string;
@@ -30,4 +30,16 @@ export function getPaperNames() : {[key: string]: string} {
     });
     console.log("Paper names: " + JSON.stringify(paperNames));
     return paperNames;
+}
+
+export function getLastVisitedPaper(): PageProps | null {
+    const lastVisited = localStorage.getItem('lastVisitedPaper');
+    if (lastVisited) {
+        return JSON.parse(lastVisited) as PageProps;
+    }
+    return null;
+}
+
+export function saveLastVisitedPaper(paper: PageProps): void {
+    localStorage.setItem('lastVisitedPaper', JSON.stringify(paper));
 }

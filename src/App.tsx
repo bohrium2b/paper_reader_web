@@ -9,7 +9,7 @@ const PageRouter = lazy(() => import('./components/PageRouter'));
 
 
 function App() {
-  const theme = themeFromSourceColor(argbFromHex("#007FFF"));
+  const theme = themeFromSourceColor(argbFromHex("#1E93AB"));
   applyTheme(theme, {target: document.body});
   const [componentjson, setJson] = React.useState(null);
   const workerUrl = new URL(
@@ -36,7 +36,6 @@ function App() {
     )
   }
   console.log("Received json.")
-  
   return ( 
     <Worker workerUrl={workerUrl}>
       <Suspense fallback={
@@ -45,8 +44,6 @@ function App() {
         </Box>
       }>
         <PageRouter
-          /*
-          //@ts-ignore */
           json={componentjson} />
       </Suspense>
     </Worker>

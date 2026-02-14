@@ -6,6 +6,13 @@ import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper
 
 import { Tabs, Tab, Box } from "@mui/material";
 import { useState } from "react";
+import PageNavigator from "./PageNavigator";
+import {Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions} from "@mui/material";
+import { getLastVisitedPaper } from "../utils";
+import { useNavigate } from "react-router-dom";
+
+// ComponentList component to display tabs and tables
+
 
 export const ComponentList = (props: { json: Array<ComponentJSON> }) => {
     const [selectedTab, setSelectedTab] = useState(0);
@@ -14,10 +21,20 @@ export const ComponentList = (props: { json: Array<ComponentJSON> }) => {
         setSelectedTab(newValue);
     };
 
+    document.title = `Home | ${props.json[0].papers[0].code} Reader`;
+
+    const [lastVisited] = useState<PageProps | null>(getLastVisitedPaper());
+    const [openDialog, setOpenDialog] = useState(lastVisited !== null);
+    const navigate = useNavigate();
+
     return (
         <>
+            <PageNavigator 
+                papers={props.json} 
+                code={props.json[selectedTab]?.papers?.[0]?.code || 0} 
+            />
             <Tabs value={selectedTab} onChange={handleChange} centered>
-                {props.json.map((component, _index) => (
+                {props.json.map((component) => (
                     <Tab key={component.name} label={component.name} />
                 ))}
             </Tabs>
@@ -37,6 +54,12 @@ export const ComponentList = (props: { json: Array<ComponentJSON> }) => {
                     )}
                 </Box>
             ))}
+            <LastVisitedDialog 
+                open={openDialog} 
+                onClose={() => setOpenDialog(false)} 
+                lastVisited={lastVisited} 
+                onVisit={() => { navigate(`/papers/${lastVisited?.filename}`); }}
+            />
         </>
     );
 };
@@ -108,3 +131,28 @@ export const ComponentTable = (props: {papers: Array<PageProps>}) => {
         </>
     )
 }
+
+export const LastVisitedDialog = (props: { open: boolean, onClose: () => void, onVisit: () => void, lastVisited: PageProps | null }) => {
+    return (
+        <>
+            <Dialog open={props.open} onClose={props.onClose}>
+                <DialogTitle>Continue where you left off?</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        You last visited: {props.lastVisited?.filename}. Would you like to continue from there?
+                    </DialogContentText>
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={props.onVisit} color="primary">
+                        Go to Last Visited
+                    </Button>
+                    <Button onClick={props.onClose} color="secondary">
+                        I'll Stay Here
+                    </Button>
+                </DialogActions>
+            </Dialog>
+        </>
+    );
+}
+
+export default ComponentList;

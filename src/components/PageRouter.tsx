@@ -1,4 +1,3 @@
-import { Page } from "./Page";
 import type { PageProps } from "./Page";
 import {RootRoute} from "./RootRoute";
 import {CircularProgress} from "@mui/material";
@@ -12,8 +11,11 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import { ComponentList } from "./ComponentList";
 import {ErrorPage} from "./ErrorPage";
+import React from "react";
+
+const Page = React.lazy(() => import('./Page').then(module => ({ default: module.Page || module })));
+const ComponentList = React.lazy(() => import('./ComponentList').then(module => ({ default: module.ComponentList || module })));
 
 export type ComponentJSON = {
     name: string,
@@ -26,7 +28,7 @@ export type ComponentJSON = {
 export function PageRouter(json: {json: Array<ComponentJSON>}) {
     const loadpaper = async ({params}: { params: { filename?: string } }) => {
         let returnvalue: PageProps | string = "Not found";
-
+        console.log("Loader called for filename: " + params.filename);
         if (!json || !Array.isArray(json.json)) {
             return (json)
         }
@@ -41,14 +43,13 @@ export function PageRouter(json: {json: Array<ComponentJSON>}) {
             throw new Response("Not Found", { status: 404 });
         }
         return {paper: returnvalue, json: json.json};
-        // return ("File not found")
     }
 
     const router = createHashRouter([
         {
             path: "/",
             element: <RootRoute />,
-            errorElement: <ErrorPage />,
+            errorElement: <ErrorPage papers={json.json} />,
             children: [
                 {
                     path: "papers/:filename",
@@ -75,7 +76,10 @@ export function PageRouter(json: {json: Array<ComponentJSON>}) {
 
 const PageWrapper: React.FC<{ json: Array<ComponentJSON> }> = ({ json }) => {
     console.log("Inside PageWrapper.")
+
+
     const data = useLoaderData() as {paper: PageProps | string; json: Array<ComponentJSON>};
+    console.log(data)
     if (data.paper === "Not found") {
         return (
             <div>Not Found</div>
