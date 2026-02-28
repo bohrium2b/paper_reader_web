@@ -3,6 +3,7 @@ import React from 'react';
 import Skeleton from "@mui/material/Skeleton";
 import { Suspense } from "react";
 import {saveLastVisitedPaper} from "../utils";
+import { Box } from '@mui/material';
 
 const Renderer = React.lazy(() => import('./Render').then(module => ({ default: module.Renderer || module })));
 const PageNavigator = React.lazy(() => import('./PageNavigator').then(module => ({ default: module.PageNavigator || module })));
@@ -39,7 +40,9 @@ export const Page = (props: PageFancyProps) => {
                 <PageNavigator papers={props.papers} code={props.code} currentPaper={props} />
             </Suspense>
             <Suspense fallback={<Skeleton variant="rectangular" width="100%" height={600} />}>
-                <Renderer key={props.filename} file={props.filename} />
+                <Box sx={{width: "100%", height: "100%"}}>
+                    <Renderer key={props.filename} file={props.filename} />
+                </Box>
             </Suspense>
         </>
     );

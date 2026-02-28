@@ -42,14 +42,14 @@ export const Renderer = (props: RendererProps) => {
                 <Grid item xs={12}>
                     { /*<MDButton variant="filledTonal" onClick={() => { setpagescale(1) }}>Reset Zoom</MDButton>*/ }
                 </Grid>
-                <Grid item xs={10} sx={{ overflowX: "auto", overflowY: "none" }}>
-                    <Box sx={{overflow: "auto", width: "99%", height:"78vh"}}>
+                <Grid item xs={11} sx={{ overflowX: "auto", overflowY: "none" }} >
+                    <Box sx={{overflow: "auto", width: "100%", height:"87vh", paddingBottom: "10px"}}>
                         <Suspense fallback={<Typography>Loading...</Typography>}>
                             <Viewer fileUrl={props.file} plugins={[zoomPluginInstance, pageNavigationPluginInstance]} onPageChange={(e: PageChangeEvent) => { setCurrentpage(e.currentPage + 1); /*pagenumberRef.current.value = e.currentPage + 1;*/ }} />
                         </Suspense>
                     </Box>
                 </Grid>
-                <Grid item xs={2} position="sticky" alignItems="center" justifyContent="center">
+                <Grid item xs={1} position="sticky" alignItems="center" justifyContent="center">
                     <Box position="sticky" top="0" alignItems="center">
                         <Toolbar />
                         <div style={{ height: "10px" }}></div>
@@ -60,14 +60,15 @@ export const Renderer = (props: RendererProps) => {
                                 )
                             }
                         </zoomPluginInstance.ZoomOut> <br />
-                        <Typography><zoomPluginInstance.CurrentScale>{(props: RenderCurrentScaleProps) => <>{`${Math.round(props.scale * 100)}%`}</>}</zoomPluginInstance.CurrentScale></Typography>
+                        <Typography sx={{alignSelf: "center", marginLeft: 0.5}}><zoomPluginInstance.CurrentScale>{(props: RenderCurrentScaleProps) => <>{`${Math.round(props.scale * 100)}%`}</>}</zoomPluginInstance.CurrentScale></Typography>
                         <zoomPluginInstance.ZoomIn>
                             {
                                 (props: RenderZoomInProps) => (
                                     <IconButton onClick={props.onClick}><ZoomInIcon /></IconButton>
                                 )
                             }
-                        </zoomPluginInstance.ZoomIn> <br />
+                        </zoomPluginInstance.ZoomIn> 
+                        <Box sx={{padding:1.5}} />
                         <GoToPreviousPage>
                             {
                                 (props) => (
@@ -75,7 +76,7 @@ export const Renderer = (props: RendererProps) => {
                                 )
                             }
                         </GoToPreviousPage>
-                         <Box sx={{height: 0, padding: 1}} />
+                         <Box sx={{height: 0, padding: 0.5}} />
                         {/*<Box display="flex" sx={{ verticalAlign: "middle", alignItems: "center" }}><TextField inputRef={pagenumberRef} variant="standard" defaultValue={currentpage ? currentpage : 1} onKeyDown={(event) => {
                             if (event.key == "Enter") { //@ts-ignore
                                 setCurrentpage(parseInt(pagenumberRef.current?.value ? pagenumberRef.current?.value : "1"));

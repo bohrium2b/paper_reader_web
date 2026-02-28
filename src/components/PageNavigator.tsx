@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { ArrowBackIos, ArrowForwardIos, Home } from '@mui/icons-material';
 import type {ComponentJSON} from "./PageRouter";
 import { PageProps } from './Page';
+import { theme } from '../theme';
 
 export type PageNavigatorProps = {
     papers: Array<ComponentJSON>;
@@ -52,8 +53,8 @@ export const PageNavigator: React.FC<PageNavigatorProps> = ({ papers, code, curr
     };
 
     return (
-        <Box style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px', backgroundColor: '#f2f2f2ff', marginRight: '10px', borderRadius: '8px', paddingTop: '5px' }}>
-            <Box style={{ display: 'flex', alignItems: 'center', marginBottom: '10px', marginTop: "5px" }}>
+        <Box sx={{ display: 'flex', containerType: "normal", justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px', backgroundColor: '#f2f2f2ff', marginRight: '10px', borderRadius: '8px', paddingTop: '5px', overflow: "hidden" }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: '10px', marginTop: "5px", flexDirection: "column", [theme.breakpoints.up('md')]: { flexDirection: "row", alignItems: "center" }, [theme.breakpoints.down('md')]: { justifySelf: "center", justifyContent: "center", justifyItems: "center", marginLeft: "10px" } }}>
                 <Button component={Link} to={'/'} variant="outlined" style={{ marginRight: '10px', marginLeft: '10px', padding: '15px' }} aria-label="Home">
                     <Home />
                 </Button>
@@ -108,30 +109,29 @@ export const PageNavigator: React.FC<PageNavigatorProps> = ({ papers, code, curr
                     Go
                 </Button>
             </Box>
-            {window.innerWidth > 600 && (
-                <Box style={{ display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "10px", marginTop: "5px" }}>
-                    <Autocomplete
-                        disablePortal
-                        options={
-                            papers
-                                .flatMap(component => component.papers)
-                                .filter((paper) => paper.filename !== null)
-                                .map((paper) => ({
-                                    label: `${paper.code}/${paper.paper}${paper.variant}/${paper.season === 'w' ? 'O/N' : 'M/J'}/${paper.year}/${paper.papertype.toUpperCase()} (${paper.filename})`,
-                                    value: paper.filename
-                                }))
+            
+            <Box sx={{ display: "flex", alignSelf: "center", alignItems: "center", justifyContent: "flex-start", marginBottom: "10px", marginTop: "5px", paddingRight: "10px", [theme.breakpoints.down('md')]: { display: "none" } }}>
+                <Autocomplete
+                    disablePortal
+                    options={
+                        papers
+                            .flatMap(component => component.papers)
+                            .filter((paper) => paper.filename !== null)
+                            .map((paper) => ({
+                                label: `${paper.code}/${paper.paper}${paper.variant}/${paper.season === 'w' ? 'O/N' : 'M/J'}/${paper.year}/${paper.papertype.toUpperCase()} (${paper.filename})`,
+                                value: paper.filename
+                            }))
+                    }
+                    renderInput={(params) => <TextField {...params} label="Search by filename" variant="outlined" />}
+                    onChange={(_event, value) => {
+                        if (value) {
+                            navigate(`/papers/${value.value}`);
                         }
-                        renderInput={(params) => <TextField {...params} label="Search by filename" variant="outlined" />}
-                        onChange={(_event, value) => {
-                            if (value) {
-                                navigate(`/papers/${value.value}`);
-                            }
-                        }}
-                        style={{ width: 300 }}
-                    />
-                </Box>
-            )}
-            <Box style={{ display: "flex", justifyContent: "flex-end", alignItems: "center", marginBottom: "10px", marginRight: "10px", marginTop: "5px" }}>
+                    }}
+                    style={{ width: 300 }}
+                />
+            </Box>
+            <Box sx={{ display: "flex", justifyContent: "flex-end", alignItems: "center", marginBottom: "10px", marginRight: "10px", marginTop: "5px", flex: "1 1 auto", [theme.breakpoints.down('lg')]: { flexDirection: "column", alignItems: "flex-start", display: "none" } }}>
                 {selectedVariant > 1 ? (
                     <Button
                         variant="outlined"
