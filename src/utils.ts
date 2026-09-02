@@ -1,45 +1,33 @@
 import { PageProps } from './components/Page';
-type Paper = {
-    code: string;
-    paperName: string;
-};
 
-type Component = {
-    papers: Paper[];
-    // add other fields if needed
-};
-
-export function getJson(): Promise<Component[]> {
-    return fetch('components.json')
-        .then((response) => response.json())
-        .then((json) => {
-            return json as Component[];
-        });
-}
-
-export function getPaperNames() : {[key: string]: string} {
-    const paperNames: {[key: string]: string} = {};
-    getJson().then((json) => {
-        if (json && Array.isArray(json)) {
-            json.forEach((component) => {
-                component.papers.forEach((paper) => {
-                    paperNames[paper.code] = paper.paperName;
-                });
-            });
-        }
-    });
-    console.log("Paper names: " + JSON.stringify(paperNames));
-    return paperNames;
+export function buildFilename(
+  code: number,
+  season: string,
+  year: number,
+  papertype: string,
+  component: number,
+  variant: number
+): string {
+  return `${code}_${season}${year.toString().padStart(2, '0')}_${papertype}_${component}${variant}.pdf`;
 }
 
 export function getLastVisitedPaper(): PageProps | null {
-    const lastVisited = localStorage.getItem('lastVisitedPaper');
-    if (lastVisited) {
-        return JSON.parse(lastVisited) as PageProps;
+  const lastVisited = localStorage.getItem('lastVisitedPaper');
+  if (lastVisited) {
+    try {
+      return JSON.parse(lastVisited) as PageProps;
+    } catch {
+      localStorage.removeItem('lastVisitedPaper');
+      return null;
     }
-    return null;
+  }
+  return null;
 }
 
 export function saveLastVisitedPaper(paper: PageProps): void {
+  try {
     localStorage.setItem('lastVisitedPaper', JSON.stringify(paper));
+  } catch {
+    // Storage full or unavailable — silently fail
+  }
 }

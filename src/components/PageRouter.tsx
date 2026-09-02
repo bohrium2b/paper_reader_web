@@ -1,6 +1,6 @@
 import type { PageProps } from "./Page";
-import {RootRoute} from "./RootRoute";
-import {CircularProgress} from "@mui/material";
+import { RootRoute } from "./RootRoute";
+import { CircularProgress } from "@mui/material";
 import {
     createHashRouter,
     RouterProvider,
@@ -11,7 +11,7 @@ import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
-import {ErrorPage} from "./ErrorPage";
+import { ErrorPage } from "./ErrorPage";
 import React from "react";
 
 const Page = React.lazy(() => import('./Page').then(module => ({ default: module.Page || module })));
@@ -25,25 +25,24 @@ export type ComponentJSON = {
     total_marks?: number
 }
 
-export function PageRouter(json: {json: Array<ComponentJSON>}) {
-    const loadpaper = async ({params}: { params: { filename?: string } }) => {
+export function PageRouter(json: { json: Array<ComponentJSON> }) {
+    const loadpaper = async ({ params }: { params: { filename?: string } }) => {
         let returnvalue: PageProps | string = "Not found";
-        console.log("Loader called for filename: " + params.filename);
         if (!json || !Array.isArray(json.json)) {
-            return (json)
+            throw new Response("Invalid data", { status: 500 });
         }
         json.json.forEach((component) => {
             component.papers.forEach((paper) => {
-                if (paper.filename == params.filename) {
+                if (paper.filename === params.filename) {
                     returnvalue = paper;
                 }
-            })
-        } )
+            });
+        });
         if (returnvalue === "Not found") {
             throw new Response("Not Found", { status: 404 });
         }
-        return {paper: returnvalue, json: json.json};
-    }
+        return { paper: returnvalue, json: json.json };
+    };
 
     const router = createHashRouter([
         {
@@ -57,49 +56,40 @@ export function PageRouter(json: {json: Array<ComponentJSON>}) {
                     loader: loadpaper
                 },
                 {
-                    // Route if no path provided
                     path: "",
-                    element: <ComponentList json={json.json}/>
+                    element: <ComponentList json={json.json} />
                 }
-
             ]
         }
-    ])
+    ]);
 
     return (
         <>
-            <RouterProvider router={router} fallbackElement={(<CircularProgress />)} />
-
+            <RouterProvider router={router} fallbackElement={<CircularProgress />} />
         </>
-    )
+    );
 }
 
-const PageWrapper: React.FC<{ json: Array<ComponentJSON> }> = ({ json }) => {
-    console.log("Inside PageWrapper.")
+const PageWrapper: React.FC<{ json: Array<ComponentJSON> }> = () => {
+    const data = useLoaderData() as { paper: PageProps | string; json: Array<ComponentJSON> };
 
-
-    const data = useLoaderData() as {paper: PageProps | string; json: Array<ComponentJSON>};
-    console.log(data)
-    if (data.paper === "Not found") {
-        return (
-            <div>Not Found</div>
-        )
-    }
-    if (!json) {
-        return (
-            <div>Loading...</div>
-        )
-    }
     if (typeof data.paper === "string") {
-        return (
-            <div>Error: {data.paper}</div>
-        )
+        return <div>Error: {data.paper}</div>;
     }
+
     return (
-        <Page filename={data.paper.filename} key={data.paper.filename} code={data.paper.code} paper={data.paper.paper} papertype={data.paper.papertype} variant={data.paper.variant} season={data.paper.season} year={data.paper.year} papers={data.json}/>
-    )
-}
-
-
+        <Page
+            filename={data.paper.filename}
+            key={data.paper.filename}
+            code={data.paper.code}
+            paper={data.paper.paper}
+            papertype={data.paper.papertype}
+            variant={data.paper.variant}
+            season={data.paper.season}
+            year={data.paper.year}
+            papers={data.json}
+        />
+    );
+};
 
 export default PageRouter;

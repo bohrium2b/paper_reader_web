@@ -96,9 +96,11 @@ export const ComponentTable = (props: {papers: Array<PageProps>}) => {
                                         }}
                                     >
                                         <TableCell>{paper.code}</TableCell>
-                                        <TableCell>
-                                            {paper.season === 's' ? '☀️' : paper.season === 'w' ? '⛄' : paper.season}
-                                        </TableCell>
+                                         <TableCell>
+                                             <span aria-label={paper.season === 's' ? 'Summer' : paper.season === 'w' ? 'Winter' : 'Unknown'}>
+                                                 {paper.season === 's' ? '☀️ Summer' : paper.season === 'w' ? '⛄ Winter' : paper.season}
+                                             </span>
+                                         </TableCell>
                                         <TableCell>{paper.year}</TableCell>
                                         <TableCell>{paper.paper}</TableCell>
                                         <TableCell>{paper.variant}</TableCell>

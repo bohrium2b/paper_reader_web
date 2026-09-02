@@ -1,8 +1,7 @@
 import { ComponentJSON } from './PageRouter';
-import React from 'react';
+import React, { Suspense } from 'react';
 import Skeleton from "@mui/material/Skeleton";
-import { Suspense } from "react";
-import {saveLastVisitedPaper} from "../utils";
+import { saveLastVisitedPaper } from "../utils";
 import { Box } from '@mui/material';
 
 const Renderer = React.lazy(() => import('./Render').then(module => ({ default: module.Renderer || module })));
@@ -30,8 +29,6 @@ type PageFancyProps = PageProps & {
 }
 
 export const Page = (props: PageFancyProps) => {
-    console.log("Rendering Page component for " + props.filename);
-    // Set page title
     document.title = `${props.filename} | ${props.code} Reader`;
     saveLastVisitedPaper(props);
     return (

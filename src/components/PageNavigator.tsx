@@ -2,9 +2,10 @@ import React from 'react';
 import { Button, Box, Select, MenuItem, Tooltip, Autocomplete, TextField, Switch, Typography } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import { ArrowBackIos, ArrowForwardIos, Home } from '@mui/icons-material';
-import type {ComponentJSON} from "./PageRouter";
+import type { ComponentJSON } from "./PageRouter";
 import { PageProps } from './Page';
 import { theme } from '../theme';
+import { buildFilename } from '../utils';
 
 export type PageNavigatorProps = {
     papers: Array<ComponentJSON>;
@@ -43,17 +44,22 @@ export const PageNavigator: React.FC<PageNavigatorProps> = ({ papers, code, curr
     }, [uniqueYears, selectedYear]);
 
     const handleNavigate = () => {
-        const seasonCode = selectedSeason;
-        const yearCode = selectedYear.toString().padStart(2, '0');
-        const variantCode = selectedVariant.toString();
-        const papertypeCode = selectedPapertype;
-        const componentCode = selectedComponent.toString();
-        const filename = `${code}_${seasonCode}${yearCode}_${papertypeCode}_${componentCode}${variantCode}.pdf`;
+        const filename = buildFilename(code, selectedSeason, selectedYear, selectedPapertype, selectedComponent, selectedVariant);
         navigate(`/papers/${filename}`);
     };
 
+    const handleTogglePapertype = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const newPapertype = e.target.checked ? "ms" : "qp";
+        setSelectedPapertype(newPapertype);
+        const filename = buildFilename(code, selectedSeason, selectedYear, newPapertype, selectedComponent, selectedVariant);
+        navigate(`/papers/${filename}`);
+    };
+
+    const prevFilename = buildFilename(code, selectedSeason, selectedYear, selectedPapertype, selectedComponent, selectedVariant - 1);
+    const nextFilename = buildFilename(code, selectedSeason, selectedYear, selectedPapertype, selectedComponent, selectedVariant + 1);
+
     return (
-        <Box sx={{ display: 'flex', containerType: "normal", justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px', backgroundColor: '#f2f2f2ff', marginRight: '10px', borderRadius: '8px', paddingTop: '5px', overflow: "hidden" }}>
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '10px', backgroundColor: '#f2f2f2ff', marginRight: '10px', borderRadius: '8px', paddingTop: '5px', overflow: "hidden" }}>
             <Box sx={{ display: 'flex', alignItems: 'center', marginBottom: '10px', marginTop: "5px", flexDirection: "column", [theme.breakpoints.up('md')]: { flexDirection: "row", alignItems: "center" }, [theme.breakpoints.down('md')]: { justifySelf: "center", justifyContent: "center", justifyItems: "center", marginLeft: "10px" } }}>
                 <Button component={Link} to={'/'} variant="outlined" style={{ marginRight: '10px', marginLeft: '10px', padding: '15px' }} aria-label="Home">
                     <Home />
@@ -70,8 +76,8 @@ export const PageNavigator: React.FC<PageNavigatorProps> = ({ papers, code, curr
                         }}
                         style={{ marginRight: '10px', maxWidth: '200px', minWidth: '75px' }}
                     >
-                        {Object.entries(components).map(([code, name]) => (
-                            <MenuItem key={code} value={parseInt(code)}>{name}</MenuItem>
+                        {Object.entries(components).map(([compCode, name]) => (
+                            <MenuItem key={compCode} value={parseInt(compCode)}>{name}</MenuItem>
                         ))}
                     </Select>
                 </Tooltip>
@@ -109,14 +115,13 @@ export const PageNavigator: React.FC<PageNavigatorProps> = ({ papers, code, curr
                     Go
                 </Button>
             </Box>
-            
+
             <Box sx={{ display: "flex", alignSelf: "center", alignItems: "center", justifyContent: "flex-start", marginBottom: "10px", marginTop: "5px", paddingRight: "10px", [theme.breakpoints.down('md')]: { display: "none" } }}>
                 <Autocomplete
                     disablePortal
                     options={
                         papers
                             .flatMap(component => component.papers)
-                            .filter((paper) => paper.filename !== null)
                             .map((paper) => ({
                                 label: `${paper.code}/${paper.paper}${paper.variant}/${paper.season === 'w' ? 'O/N' : 'M/J'}/${paper.year}/${paper.papertype.toUpperCase()} (${paper.filename})`,
                                 value: paper.filename
@@ -136,40 +141,19 @@ export const PageNavigator: React.FC<PageNavigatorProps> = ({ papers, code, curr
                     <Button
                         variant="outlined"
                         component={Link}
-                        to={`/papers/${code}_${selectedSeason}${selectedYear
-                            .toString()
-                            .padStart(2, '0')}_${selectedPapertype}_${selectedComponent}${(selectedVariant - 1).toString()}.pdf`}
-                        startIcon={
-                            <ArrowBackIos />
-                        }
+                        to={`/papers/${prevFilename}`}
+                        startIcon={<ArrowBackIos />}
                     >
                         Previous Variant
                     </Button>
                 ) : (
-                    <Button
-                        variant="outlined"
-                        disabled
-                        startIcon={
-                            <ArrowBackIos />
-                        }
-                    >
+                    <Button variant="outlined" disabled startIcon={<ArrowBackIos />}>
                         Previous Variant
                     </Button>
                 )}
                 <Switch
                     checked={selectedPapertype === "ms"}
-                    onChange={(e) => {
-                        const newPapertype = e.target.checked ? "ms" : "qp";
-                        setSelectedPapertype(newPapertype);
-                        // Redirect to new page
-                        const seasonCode = selectedSeason;
-                        const yearCode = selectedYear.toString().padStart(2, '0');
-                        const variantCode = selectedVariant.toString();
-                        const papertypeCode = newPapertype;
-                        const componentCode = selectedComponent.toString();
-                        const filename = `${code}_${seasonCode}${yearCode}_${papertypeCode}_${componentCode}${variantCode}.pdf`;
-                        window.location.href = `#/papers/${filename}`;
-                    }}
+                    onChange={handleTogglePapertype}
                     color="primary"
                     inputProps={{ 'aria-label': 'Toggle Mark Scheme / Question Paper' }}
                 />
@@ -180,23 +164,13 @@ export const PageNavigator: React.FC<PageNavigatorProps> = ({ papers, code, curr
                     <Button
                         variant="outlined"
                         component={Link}
-                        to={`/papers/${code}_${selectedSeason}${selectedYear
-                            .toString()
-                            .padStart(2, '0')}_${selectedPapertype}_${selectedComponent}${(selectedVariant + 1).toString()}.pdf`}
-                        endIcon={
-                            <ArrowForwardIos />
-                        }
+                        to={`/papers/${nextFilename}`}
+                        endIcon={<ArrowForwardIos />}
                     >
                         Next Variant
                     </Button>
                 ) : (
-                    <Button
-                        variant="outlined"
-                        disabled
-                        endIcon={
-                            <ArrowForwardIos />
-                        }
-                    >
+                    <Button variant="outlined" disabled endIcon={<ArrowForwardIos />}>
                         Next Variant
                     </Button>
                 )}
