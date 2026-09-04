@@ -169,49 +169,6 @@
     "@babel/helper-string-parser" "^7.29.7"
     "@babel/helper-validator-identifier" "^7.29.7"
 
-"@embedpdf/core-acrojs@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/core-acrojs/-/core-acrojs-3.0.0-next.11.tgz"
-  integrity sha512-hlCnVVnp8lXLs2iAoZLhcxYECweHQBTlZSg9potq0our15yyRlcVnGWLfKH6xPfGrxroB9F4rvIWK71OEVj4hw==
-  dependencies:
-    "@embedpdf/engine-core" "3.0.0-next.11"
-
-"@embedpdf/core-annotation@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/core-annotation/-/core-annotation-3.0.0-next.11.tgz"
-  integrity sha512-y7I4r29gG4/3ZCcP5Fpn5/aCQA+CRKcrQnTYeyl2iQayxtJ4L6l6QIEOvIclCXK6vI3RqRFYdCO+F98KzvrHJA==
-  dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-    "@embedpdf/core-geometry" "3.0.0-next.11"
-    "@embedpdf/engine-core" "3.0.0-next.11"
-
-"@embedpdf/core-geometry@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/core-geometry/-/core-geometry-3.0.0-next.11.tgz"
-  integrity sha512-CsnLTfyEKdMqC73EKjB9Uf9I+C3+TzZ6jqnyamokvM3HG3mfulan063oO/3t5V/DKGMUvHeOHQRufx8rilw/xg==
-
-"@embedpdf/core-js-sandbox@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/core-js-sandbox/-/core-js-sandbox-3.0.0-next.11.tgz"
-  integrity sha512-DGXccFrJWQrgsVivWLIsh8ZSL6nUOlV3R8eGFDXoZjkSTDb/0mFt+xb/skjseJ4DVHFXIN5WtgzOCifpY9lUlg==
-  dependencies:
-    "@embedpdf/core-acrojs" "3.0.0-next.11"
-    "@jitl/quickjs-singlefile-browser-release-sync" "0.32.0"
-    "@jitl/quickjs-wasmfile-release-sync" "0.32.0"
-    quickjs-emscripten-core "0.32.0"
-
-"@embedpdf/core-stage@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/core-stage/-/core-stage-3.0.0-next.11.tgz"
-  integrity sha512-sLQr/xH1+NLEy4YI+3VIKf1qsvbkQhki7Ys4artRuHXaymL16xA6494A4Vl0bSL2lun5rJ7V9T31olQ714ZDUA==
-  dependencies:
-    "@embedpdf/core-geometry" "3.0.0-next.11"
-
-"@embedpdf/core-ui@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/core-ui/-/core-ui-3.0.0-next.11.tgz"
-  integrity sha512-7ZFMB98n1vGxx765kKytFe7ShmskrapZCk5IMbkaA386nrbv/yf1tOgKJ7pkaAHSnQc+NB3dGO6Qboct3LNgTg==
-
 "@embedpdf/core@^2.15.0", "@embedpdf/core@2.15.0":
   version "2.15.0"
   resolved "https://registry.npmjs.org/@embedpdf/core/-/core-2.15.0.tgz"
@@ -219,65 +176,6 @@
   dependencies:
     "@embedpdf/engines" "2.15.0"
     "@embedpdf/models" "2.15.0"
-
-"@embedpdf/core@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/core/-/core-3.0.0-next.11.tgz"
-  integrity sha512-68JwAWvdFgRB8V1KwzTnxr4Ut+P59w1fabhYmHL6YgM1KMSAiypZS/vyjjVToV6YNMUZpKQ49S1D3wHnSeHJPg==
-  dependencies:
-    "@embedpdf/engine-core" "3.0.0-next.11"
-
-"@embedpdf/engine-core@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/engine-core/-/engine-core-3.0.0-next.11.tgz"
-  integrity sha512-rAZyGvPEgMKUQswsukBib7eflJz8eab5pC1W7eziGs/yj30Ouv2pF8iTaLMOpr4k1B4rrc1bMzXEBbnH+4Pvig==
-  dependencies:
-    zod "^3.23.8"
-
-"@embedpdf/engine-runtime-darwin-arm64@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/engine-runtime-darwin-arm64/-/engine-runtime-darwin-arm64-3.0.0-next.11.tgz"
-  integrity sha512-hqcvCyAI7AB3G62GyHmzYnIOccwqlc39FBdx/nXHqM+cQO1BMox+uGbX6X1V+f7W+YJm6+Is77g4X+NWJWeS4g==
-
-"@embedpdf/engine-runtime-wasm32@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/engine-runtime-wasm32/-/engine-runtime-wasm32-3.0.0-next.11.tgz"
-  integrity sha512-CFgeQO3W62VYIRIYTcTKOdYyK6B2s2BojaFhVCF7L7IEBKKott0iPpvGYzc/mnzclkpRdLjGYsHJcpRdvSObxw==
-
-"@embedpdf/engine-runtime@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/engine-runtime/-/engine-runtime-3.0.0-next.11.tgz"
-  integrity sha512-yLSlQwgeuM8bCi6V/+fnTCivawaQljc4CbrrxhbrJgAMbJ9MkyTNANUh9Yg+IQFAhb6VlflOjzjQpcN3TtBxrQ==
-  dependencies:
-    detect-libc "^2.1.2"
-  optionalDependencies:
-    "@embedpdf/engine-runtime-darwin-arm64" "3.0.0-next.11"
-    "@embedpdf/engine-runtime-darwin-x64" "3.0.0-next.11"
-    "@embedpdf/engine-runtime-linux-arm64" "3.0.0-next.11"
-    "@embedpdf/engine-runtime-linux-x64" "3.0.0-next.11"
-    "@embedpdf/engine-runtime-linuxmusl-arm64" "3.0.0-next.11"
-    "@embedpdf/engine-runtime-linuxmusl-x64" "3.0.0-next.11"
-    "@embedpdf/engine-runtime-wasm32" "3.0.0-next.11"
-    "@embedpdf/engine-runtime-win32-arm64" "3.0.0-next.11"
-    "@embedpdf/engine-runtime-win32-x64" "3.0.0-next.11"
-
-"@embedpdf/engine-services@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/engine-services/-/engine-services-3.0.0-next.11.tgz"
-  integrity sha512-o3piTeIwxb55lKMzcYKjk5kiVNf5dyZKkLBxGAjI0nmlPBA2Pme4Wbny5ejWiUxVsR9JFnMbAdrnxmR7wUM29A==
-  dependencies:
-    "@embedpdf/engine-core" "3.0.0-next.11"
-    "@embedpdf/engine-runtime" "3.0.0-next.11"
-
-"@embedpdf/engine@^3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/engine/-/engine-3.0.0-next.11.tgz"
-  integrity sha512-wpqr+I/jm8LpE90c1EtjXQmR8pVvkwnwqGOTp1YeZNewW0hWFnedU6ZMsP8iu9O+npHfMNtV2I8U3wNgZtA7Kg==
-  dependencies:
-    "@embedpdf/engine-core" "3.0.0-next.11"
-    "@embedpdf/engine-runtime" "3.0.0-next.11"
-    "@embedpdf/engine-runtime-wasm32" "3.0.0-next.11"
-    "@embedpdf/engine-services" "3.0.0-next.11"
 
 "@embedpdf/engines@^2.15.0", "@embedpdf/engines@2.15.0":
   version "2.15.0"
@@ -339,40 +237,6 @@
   resolved "https://registry.npmjs.org/@embedpdf/pdfium/-/pdfium-2.15.0.tgz"
   integrity sha512-KgpRND2MYcdbhzb2EMb4WzWcJYrR0A6JXvhMv4WthEHKt6qmNo2v/MC68bpYvpveYT9GNnUnY/+TG5MpXY3pRw==
 
-"@embedpdf/plugin-actions@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-actions/-/plugin-actions-3.0.0-next.11.tgz"
-  integrity sha512-NKK8N/JV2GIVj5v48jAb0+SBqoryJq0v+Wk3hzWfAtMO5m/AEC8MV5xHoSBbBPSNGfjpNtX5chtX6Djy0U/t7w==
-  dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-    "@embedpdf/core-acrojs" "3.0.0-next.11"
-    "@embedpdf/core-js-sandbox" "3.0.0-next.11"
-    "@embedpdf/engine-core" "3.0.0-next.11"
-
-"@embedpdf/plugin-annotation@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-annotation/-/plugin-annotation-3.0.0-next.11.tgz"
-  integrity sha512-TpynQbvkofvzjPMOljxTemezw2LGEVF2UI8Ieq/c04Bb3JCsH3lL0cVUfHRTrXmw2Dy+R6bNwEJ4+EZ9cWuQJQ==
-  dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-    "@embedpdf/core-acrojs" "3.0.0-next.11"
-    "@embedpdf/core-annotation" "3.0.0-next.11"
-    "@embedpdf/core-geometry" "3.0.0-next.11"
-    "@embedpdf/engine-core" "3.0.0-next.11"
-    "@embedpdf/plugin-actions" "3.0.0-next.11"
-    "@embedpdf/plugin-interaction" "3.0.0-next.11"
-    "@embedpdf/plugin-selection" "3.0.0-next.11"
-
-"@embedpdf/plugin-commands@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-commands/-/plugin-commands-3.0.0-next.11.tgz"
-  integrity sha512-AXXdgY20SpYSD4/C32KQENzWOGqLUuXWkwLxg+o7sDz4nQ7IzwhZg4IlT9XyxBOmAprf9nIjF/ey+Yd+Iyrbsw==
-  dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-    "@embedpdf/core-ui" "3.0.0-next.11"
-    "@embedpdf/plugin-i18n" "3.0.0-next.11"
-    "@embedpdf/plugin-shell" "3.0.0-next.11"
-
 "@embedpdf/plugin-document-manager@^2.15.0":
   version "2.15.0"
   resolved "https://registry.npmjs.org/@embedpdf/plugin-document-manager/-/plugin-document-manager-2.15.0.tgz"
@@ -380,72 +244,12 @@
   dependencies:
     "@embedpdf/models" "2.15.0"
 
-"@embedpdf/plugin-form@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-form/-/plugin-form-3.0.0-next.11.tgz"
-  integrity sha512-AhwcUIYyayeyZk4n5+JY9xUKOqkg8CJCxgr/i5NCn+Sw5iM0fViMqNhgj6oglFlzdNgdtriFiln8siwzdLQyPw==
+"@embedpdf/plugin-interaction-manager@^2.15.0", "@embedpdf/plugin-interaction-manager@2.15.0":
+  version "2.15.0"
+  resolved "https://registry.npmjs.org/@embedpdf/plugin-interaction-manager/-/plugin-interaction-manager-2.15.0.tgz"
+  integrity sha512-YCMvTvu4Fm1KNuEhj+CftzG+T6F1+/QhI7eaYft9Lp5xm3CYSXdR3pNfGwNFy5XkDUDwB1IscLTiU0q75viMCw==
   dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-    "@embedpdf/core-acrojs" "3.0.0-next.11"
-    "@embedpdf/core-js-sandbox" "3.0.0-next.11"
-    "@embedpdf/engine-core" "3.0.0-next.11"
-    "@embedpdf/plugin-actions" "3.0.0-next.11"
-    "@embedpdf/plugin-annotation" "3.0.0-next.11"
-    "@embedpdf/plugin-interaction" "3.0.0-next.11"
-
-"@embedpdf/plugin-i18n@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-i18n/-/plugin-i18n-3.0.0-next.11.tgz"
-  integrity sha512-6BMiUY5YOUF+tArxmJlXDvpzHad0/ZkancbK+koas+dhj0Lfm9IwtBibCXt5aOEJn1oV5ER92P5PSpLopVKj9Q==
-  dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-
-"@embedpdf/plugin-interaction@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-interaction/-/plugin-interaction-3.0.0-next.11.tgz"
-  integrity sha512-pCu/juXQosHdGCA18rxiSXVeMiKSb390SwMoH3uYz9FceQ9hpZxt6xckVBdPYZ55b+gB/3J/LHLRN0I8+1oi5Q==
-  dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-    "@embedpdf/core-geometry" "3.0.0-next.11"
-
-"@embedpdf/plugin-link@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-link/-/plugin-link-3.0.0-next.11.tgz"
-  integrity sha512-JLRmXO2SAEfruVprg0Af2NoTooz26g/5bFmWnumph2z6mVBhho6Kg4tZRsCCVyv4F7kSO5KDrDZwlMg8q381Ew==
-  dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-    "@embedpdf/core-annotation" "3.0.0-next.11"
-    "@embedpdf/core-geometry" "3.0.0-next.11"
-    "@embedpdf/engine-core" "3.0.0-next.11"
-    "@embedpdf/plugin-actions" "3.0.0-next.11"
-    "@embedpdf/plugin-annotation" "3.0.0-next.11"
-    "@embedpdf/plugin-interaction" "3.0.0-next.11"
-    "@embedpdf/plugin-stage" "3.0.0-next.11"
-
-"@embedpdf/plugin-metadata@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-metadata/-/plugin-metadata-3.0.0-next.11.tgz"
-  integrity sha512-tSLKj7BICWSU8spjE4RXmjHVk1wfGO14ZmVVIXU2/O1xOidwxJ3aMVyMi9GTZ8vXmzvHAEyeMjcIqMalxrrOGA==
-  dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-
-"@embedpdf/plugin-page-edit@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-page-edit/-/plugin-page-edit-3.0.0-next.11.tgz"
-  integrity sha512-u4YYW4WwXFaQIXEbMcx4zUDStBIIjp7TyHwcRntoLBEUW/eW+XWKBgQiNBWaXNAia+HiB3aM76kKVMYpBZtqwQ==
-  dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-
-"@embedpdf/plugin-redaction@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-redaction/-/plugin-redaction-3.0.0-next.11.tgz"
-  integrity sha512-JhxXhQs5dyi6FXe75By7LshZZDss6MBNIhlrcHn0gADZPbY+gLSLdOcbZzS9IaYuQ9m9RnXSkvKZ1K400fL+2w==
-  dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-    "@embedpdf/engine-core" "3.0.0-next.11"
-    "@embedpdf/plugin-annotation" "3.0.0-next.11"
-    "@embedpdf/plugin-interaction" "3.0.0-next.11"
-    "@embedpdf/plugin-selection" "3.0.0-next.11"
+    "@embedpdf/models" "2.15.0"
 
 "@embedpdf/plugin-render@^2.15.0":
   version "2.15.0"
@@ -454,77 +258,27 @@
   dependencies:
     "@embedpdf/models" "2.15.0"
 
-"@embedpdf/plugin-render@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-render/-/plugin-render-3.0.0-next.11.tgz"
-  integrity sha512-eNqrMX9foX/fpsCj5YcCfvgyeCgsFtrBP0cCjiOmpMBzOgbKs6qTFV9xV6lnHKLB0NTw9Y5GYP+wdFS+x7pDXA==
+"@embedpdf/plugin-rotate@^2.15.0":
+  version "2.15.0"
+  resolved "https://registry.npmjs.org/@embedpdf/plugin-rotate/-/plugin-rotate-2.15.0.tgz"
+  integrity sha512-mhfDC8NCQ8H6ati3O6smA6ZxZoMgPGtloEeY6gs61+zoxPKyXiuCpxZKJctRfYdrTdoRgXpFa3fKflwStMcgFg==
   dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-    "@embedpdf/core-geometry" "3.0.0-next.11"
+    "@embedpdf/models" "2.15.0"
 
-"@embedpdf/plugin-scroll@^2.15.0":
+"@embedpdf/plugin-scroll@^2.15.0", "@embedpdf/plugin-scroll@2.15.0":
   version "2.15.0"
   resolved "https://registry.npmjs.org/@embedpdf/plugin-scroll/-/plugin-scroll-2.15.0.tgz"
   integrity sha512-UqjLH3lafrpqN1qcxIpfd1MfWW5Fdf6/4LjneUabHt+3gxy1qd2KU9oPR5wwinsh3vmjn90qURsnqIHL5jnaOg==
   dependencies:
     "@embedpdf/models" "2.15.0"
 
-"@embedpdf/plugin-search@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-search/-/plugin-search-3.0.0-next.11.tgz"
-  integrity sha512-J5x1XJeH/c2bCt1OkXrH+ucHfLSjpGNCov5nIRh+1g7GBzz9IOnFYQkGsPHYVSlCcH7zK+hL5MK15s3gJL0smg==
+"@embedpdf/plugin-selection@^2.15.0":
+  version "2.15.0"
+  resolved "https://registry.npmjs.org/@embedpdf/plugin-selection/-/plugin-selection-2.15.0.tgz"
+  integrity sha512-iEnhx0jeQrbze7WHkHhZtF21yfGBuqF2B+V2efLHT2O0a2fnof+PEVaQQRgERSfrwRvLvyEJL9ud54E41ahsRQ==
   dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-    "@embedpdf/core-geometry" "3.0.0-next.11"
-    "@embedpdf/engine-core" "3.0.0-next.11"
-    "@embedpdf/plugin-stage" "3.0.0-next.11"
-
-"@embedpdf/plugin-selection@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-selection/-/plugin-selection-3.0.0-next.11.tgz"
-  integrity sha512-PkclKJTJ7rMooBRVtRRxtU+VtvBn6EMnHBtFbl3nBZs5XsGqOjFYpVi/CCSN/yIhkr+AI9BKBcj7cyeYoTe+SA==
-  dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-    "@embedpdf/core-geometry" "3.0.0-next.11"
-    "@embedpdf/engine-core" "3.0.0-next.11"
-    "@embedpdf/plugin-interaction" "3.0.0-next.11"
-
-"@embedpdf/plugin-shell@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-shell/-/plugin-shell-3.0.0-next.11.tgz"
-  integrity sha512-jMQG2s5uRqSFeg808tjonnDwFghEIgJjNh1SUEnhZzvRwF/zQMTe1SZFy6oGY/UrvRRk04ghJTNxiOw0VyeXsw==
-  dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-
-"@embedpdf/plugin-stage@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-stage/-/plugin-stage-3.0.0-next.11.tgz"
-  integrity sha512-oV1Op1V4D8iaY4J4O/910veMQwpvER0U5RanaEv4A7oCUkI7qtYKm83ihRjl7RiPTuR/jE1IrTOCmP50oDpYDw==
-  dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-    "@embedpdf/core-geometry" "3.0.0-next.11"
-    "@embedpdf/core-stage" "3.0.0-next.11"
-    "@embedpdf/plugin-actions" "3.0.0-next.11"
-    "@embedpdf/plugin-interaction" "3.0.0-next.11"
-
-"@embedpdf/plugin-stamp@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-stamp/-/plugin-stamp-3.0.0-next.11.tgz"
-  integrity sha512-g7o7A+jyBXYekGA4KFXwXTREmqqgtx8RxSY9yOvXBshrWTq/dBODMVr3VQlzrgE6MC7tRDwdHkxM3rDvQE6R9w==
-  dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-    "@embedpdf/core-acrojs" "3.0.0-next.11"
-    "@embedpdf/core-js-sandbox" "3.0.0-next.11"
-    "@embedpdf/engine-core" "3.0.0-next.11"
-    "@embedpdf/plugin-annotation" "3.0.0-next.11"
-    "@embedpdf/plugin-form" "3.0.0-next.11"
-
-"@embedpdf/plugin-view-manager@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/plugin-view-manager/-/plugin-view-manager-3.0.0-next.11.tgz"
-  integrity sha512-K4GQya3emcuvFHty2iHSjKHNI/qMBRadtQlTeUjXPEb/q/VeyOh4MIbJ2apheqgVQus3pP+IAIXHdQrweh++0A==
-  dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
+    "@embedpdf/models" "2.15.0"
+    "@embedpdf/utils" "2.15.0"
 
 "@embedpdf/plugin-viewport@^2.15.0", "@embedpdf/plugin-viewport@2.15.0":
   version "2.15.0"
@@ -533,39 +287,17 @@
   dependencies:
     "@embedpdf/models" "2.15.0"
 
-"@embedpdf/react@^3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/react/-/react-3.0.0-next.11.tgz"
-  integrity sha512-GYluJo48kPI3/bwwITRevqBat6DTL5x1qVQJbX99jpIvhGLkFjqtSpS8EsaGOA/A5yKPF/un2G3FQIEdpcKskA==
+"@embedpdf/plugin-zoom@^2.15.0":
+  version "2.15.0"
+  resolved "https://registry.npmjs.org/@embedpdf/plugin-zoom/-/plugin-zoom-2.15.0.tgz"
+  integrity sha512-d+YhwqcQNZaaHczVGe4pbaAYQXWO4MEoivcW7jOpE31VnKqEAdjCMye8F0ctcF5OjgbXeb6AKCk4L4fDdLF4mg==
   dependencies:
-    "@embedpdf/core" "3.0.0-next.11"
-    "@embedpdf/core-annotation" "3.0.0-next.11"
-    "@embedpdf/core-geometry" "3.0.0-next.11"
-    "@embedpdf/core-stage" "3.0.0-next.11"
-    "@embedpdf/core-ui" "3.0.0-next.11"
-    "@embedpdf/plugin-actions" "3.0.0-next.11"
-    "@embedpdf/plugin-annotation" "3.0.0-next.11"
-    "@embedpdf/plugin-commands" "3.0.0-next.11"
-    "@embedpdf/plugin-form" "3.0.0-next.11"
-    "@embedpdf/plugin-i18n" "3.0.0-next.11"
-    "@embedpdf/plugin-interaction" "3.0.0-next.11"
-    "@embedpdf/plugin-link" "3.0.0-next.11"
-    "@embedpdf/plugin-metadata" "3.0.0-next.11"
-    "@embedpdf/plugin-page-edit" "3.0.0-next.11"
-    "@embedpdf/plugin-redaction" "3.0.0-next.11"
-    "@embedpdf/plugin-render" "3.0.0-next.11"
-    "@embedpdf/plugin-search" "3.0.0-next.11"
-    "@embedpdf/plugin-selection" "3.0.0-next.11"
-    "@embedpdf/plugin-shell" "3.0.0-next.11"
-    "@embedpdf/plugin-stage" "3.0.0-next.11"
-    "@embedpdf/plugin-stamp" "3.0.0-next.11"
-    "@embedpdf/plugin-view-manager" "3.0.0-next.11"
-    "@embedpdf/web" "3.0.0-next.11"
+    "@embedpdf/models" "2.15.0"
 
-"@embedpdf/web@3.0.0-next.11":
-  version "3.0.0-next.11"
-  resolved "https://registry.npmjs.org/@embedpdf/web/-/web-3.0.0-next.11.tgz"
-  integrity sha512-I3hxGiXtDeyk2DpI5NcuP3aHSUFjWzX9QZ65NHuDfuY+XzEvaPKOwjVSikw7/k9MyR91mWuVqz7E9N9zCXqhRw==
+"@embedpdf/utils@2.15.0":
+  version "2.15.0"
+  resolved "https://registry.npmjs.org/@embedpdf/utils/-/utils-2.15.0.tgz"
+  integrity sha512-13UEMPpu5XrxmYI/MPiLtJC3R3b1g8ii3zfhQ3g1WpECybnwTuhBgwqaOvqw3rVCKCnXEgNMs4PBCzLyFpZZTw==
 
 "@emotion/babel-plugin@^11.12.0":
   version "11.12.0"
@@ -725,25 +457,6 @@
   dependencies:
     minipass "^7.0.4"
 
-"@jitl/quickjs-ffi-types@0.32.0":
-  version "0.32.0"
-  resolved "https://registry.npmjs.org/@jitl/quickjs-ffi-types/-/quickjs-ffi-types-0.32.0.tgz"
-  integrity sha512-v9T+GQpmk43VDJ7d72sf0Nexhk+ArvtUihW27dy7lqAl0zBObFKtSBBIm5RBjwIhE8VwsPPm9PNuvPvNqLWUEg==
-
-"@jitl/quickjs-singlefile-browser-release-sync@0.32.0":
-  version "0.32.0"
-  resolved "https://registry.npmjs.org/@jitl/quickjs-singlefile-browser-release-sync/-/quickjs-singlefile-browser-release-sync-0.32.0.tgz"
-  integrity sha512-Hfdl7rh8dzxNWFRiYAYNbhn0RMF1/tO6SMH2mUW0aTibqwaAtqPRbi4WkwaIDlhNz8Z4dksJi1Zjl1R54Jsc/Q==
-  dependencies:
-    "@jitl/quickjs-ffi-types" "0.32.0"
-
-"@jitl/quickjs-wasmfile-release-sync@0.32.0":
-  version "0.32.0"
-  resolved "https://registry.npmjs.org/@jitl/quickjs-wasmfile-release-sync/-/quickjs-wasmfile-release-sync-0.32.0.tgz"
-  integrity sha512-BKNDI/TPBfGlLNGYpLrhcDGXmIk4xHm4MRAisOBnOzpXVn9HZWsfmMAc9WMBrAHjvvds6HOikKeaOBKdPdpVrg==
-  dependencies:
-    "@jitl/quickjs-ffi-types" "0.32.0"
-
 "@jridgewell/gen-mapping@^0.3.5":
   version "0.3.5"
   dependencies:
@@ -785,19 +498,6 @@
   version "2.0.4"
   dependencies:
     "@lit-labs/ssr-dom-shim" "^1.2.0"
-
-"@mapbox/node-pre-gyp@^1.0.0":
-  version "1.0.11"
-  dependencies:
-    detect-libc "^2.0.0"
-    https-proxy-agent "^5.0.0"
-    make-dir "^3.1.0"
-    node-fetch "^2.6.7"
-    nopt "^5.0.0"
-    npmlog "^5.0.1"
-    rimraf "^3.0.2"
-    semver "^7.3.5"
-    tar "^6.1.11"
 
 "@material/material-color-utilities@^0.3.0":
   version "0.3.0"
@@ -893,19 +593,6 @@
 
 "@popperjs/core@^2.11.8", "@popperjs/core@^2.9.2":
   version "2.11.8"
-
-"@react-pdf-viewer/core@3.12.0":
-  version "3.12.0"
-
-"@react-pdf-viewer/page-navigation@^3.12.0":
-  version "3.12.0"
-  dependencies:
-    "@react-pdf-viewer/core" "3.12.0"
-
-"@react-pdf-viewer/zoom@^3.12.0":
-  version "3.12.0"
-  dependencies:
-    "@react-pdf-viewer/core" "3.12.0"
 
 "@remix-run/router@1.19.2":
   version "1.19.2"
@@ -1177,19 +864,11 @@
   resolved "https://registry.npmjs.org/@vue/shared/-/shared-3.5.42.tgz"
   integrity sha512-2rPxex1jQf4jvl9MOHl6YaXCPcrNqz/FstMOEh3QWY+/OME9nQTvl9WYeCwhW7AFjaR0SnngZGlp/wkR6rkI6g==
 
-abbrev@1:
-  version "1.1.1"
-
 acorn-jsx@^5.3.2:
   version "5.3.2"
 
 "acorn@^6.0.0 || ^7.0.0 || ^8.0.0", acorn@^8.12.0, acorn@^8.12.1, acorn@^8.9.0:
   version "8.12.1"
-
-agent-base@6:
-  version "6.0.2"
-  dependencies:
-    debug "4"
 
 ajv@^6.12.4:
   version "6.12.6"
@@ -1211,15 +890,6 @@ ansi-styles@^4.1.0:
   version "4.3.0"
   dependencies:
     color-convert "^2.0.1"
-
-"aproba@^1.0.3 || ^2.0.0":
-  version "2.0.0"
-
-are-we-there-yet@^2.0.0:
-  version "2.0.0"
-  dependencies:
-    delegates "^1.0.0"
-    readable-stream "^3.6.0"
 
 argparse@^2.0.1:
   version "2.0.1"
@@ -1277,13 +947,6 @@ callsites@^3.0.0:
 caniuse-lite@^1.0.30001646:
   version "1.0.30001660"
 
-canvas@^2.11.0:
-  version "2.11.2"
-  dependencies:
-    "@mapbox/node-pre-gyp" "^1.0.0"
-    nan "^2.17.0"
-    simple-get "^3.0.3"
-
 chalk@^2.4.2:
   version "2.4.2"
   dependencies:
@@ -1296,9 +959,6 @@ chalk@^4.0.0:
   dependencies:
     ansi-styles "^4.1.0"
     supports-color "^7.1.0"
-
-chownr@^2.0.0:
-  version "2.0.0"
 
 chownr@^3.0.0:
   version "3.0.0"
@@ -1322,14 +982,8 @@ color-name@~1.1.4:
 color-name@1.1.3:
   version "1.1.3"
 
-color-support@^1.1.2:
-  version "1.1.3"
-
 concat-map@0.0.1:
   version "0.0.1"
-
-console-control-strings@^1.0.0, console-control-strings@^1.1.0:
-  version "1.1.0"
 
 convert-source-map@^1.5.0:
   version "1.9.0"
@@ -1361,23 +1015,15 @@ csstype@^3.0.2, csstype@^3.1.3, csstype@^3.2.3:
 debounce@^1.2.1:
   version "1.2.1"
 
-debug@^4.1.0, debug@^4.3.1, debug@^4.3.2, debug@^4.3.4, debug@4:
+debug@^4.1.0, debug@^4.3.1, debug@^4.3.2, debug@^4.3.4:
   version "4.3.7"
   dependencies:
     ms "^2.1.3"
 
-decompress-response@^4.2.0:
-  version "4.2.1"
-  dependencies:
-    mimic-response "^2.0.0"
-
 deep-is@^0.1.3:
   version "0.1.4"
 
-delegates@^1.0.0:
-  version "1.0.0"
-
-detect-libc@^2.0.0, detect-libc@^2.0.3, detect-libc@^2.0.4, detect-libc@^2.1.2:
+detect-libc@^2.0.3, detect-libc@^2.0.4:
   version "2.1.2"
   resolved "https://registry.npmjs.org/detect-libc/-/detect-libc-2.1.2.tgz"
   integrity sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==
@@ -1395,9 +1041,6 @@ dom-helpers@^5.0.1:
 
 electron-to-chromium@^1.5.4:
   version "1.5.24"
-
-emoji-regex@^8.0.0:
-  version "8.0.0"
 
 enhanced-resolve@^5.18.3:
   version "5.18.3"
@@ -1598,32 +1241,11 @@ flat-cache@^4.0.0:
 flatted@^3.2.9:
   version "3.3.1"
 
-fs-minipass@^2.0.0:
-  version "2.1.0"
-  dependencies:
-    minipass "^3.0.0"
-
-fs.realpath@^1.0.0:
-  version "1.0.0"
-
 fsevents@~2.3.2, fsevents@~2.3.3:
   version "2.3.3"
 
 function-bind@^1.1.2:
   version "1.1.2"
-
-gauge@^3.0.0:
-  version "3.0.2"
-  dependencies:
-    aproba "^1.0.3 || ^2.0.0"
-    color-support "^1.1.2"
-    console-control-strings "^1.0.0"
-    has-unicode "^2.0.1"
-    object-assign "^4.1.1"
-    signal-exit "^3.0.0"
-    string-width "^4.2.3"
-    strip-ansi "^6.0.1"
-    wide-align "^1.1.2"
 
 gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
@@ -1637,16 +1259,6 @@ glob-parent@^6.0.2:
   version "6.0.2"
   dependencies:
     is-glob "^4.0.3"
-
-glob@^7.1.3:
-  version "7.2.3"
-  dependencies:
-    fs.realpath "^1.0.0"
-    inflight "^1.0.4"
-    inherits "2"
-    minimatch "^3.1.1"
-    once "^1.3.0"
-    path-is-absolute "^1.0.0"
 
 globals@^11.1.0:
   version "11.12.0"
@@ -1669,9 +1281,6 @@ has-flag@^3.0.0:
 has-flag@^4.0.0:
   version "4.0.0"
 
-has-unicode@^2.0.1:
-  version "2.0.1"
-
 hasown@^2.0.2:
   version "2.0.2"
   dependencies:
@@ -1681,12 +1290,6 @@ hoist-non-react-statics@^3.3.1:
   version "3.3.2"
   dependencies:
     react-is "^16.7.0"
-
-https-proxy-agent@^5.0.0:
-  version "5.0.1"
-  dependencies:
-    agent-base "6"
-    debug "4"
 
 ignore@^5.2.0, ignore@^5.3.1:
   version "5.3.2"
@@ -1700,15 +1303,6 @@ import-fresh@^3.2.1:
 imurmurhash@^0.1.4:
   version "0.1.4"
 
-inflight@^1.0.4:
-  version "1.0.6"
-  dependencies:
-    once "^1.3.0"
-    wrappy "1"
-
-inherits@^2.0.3, inherits@2:
-  version "2.0.4"
-
 is-arrayish@^0.2.1:
   version "0.2.1"
 
@@ -1719,9 +1313,6 @@ is-core-module@^2.13.0:
 
 is-extglob@^2.1.1:
   version "2.1.1"
-
-is-fullwidth-code-point@^3.0.0:
-  version "3.0.0"
 
 is-glob@^4.0.0, is-glob@^4.0.1, is-glob@^4.0.3:
   version "4.0.3"
@@ -1855,11 +1446,6 @@ magic-string@^0.30.11, magic-string@^0.30.18, magic-string@^0.30.21:
   dependencies:
     "@jridgewell/sourcemap-codec" "^1.5.5"
 
-make-dir@^3.1.0:
-  version "3.1.0"
-  dependencies:
-    semver "^6.0.0"
-
 merge2@^1.3.0:
   version "1.4.1"
 
@@ -1869,10 +1455,7 @@ micromatch@^4.0.4:
     braces "^3.0.3"
     picomatch "^2.3.1"
 
-mimic-response@^2.0.0:
-  version "2.1.0"
-
-minimatch@^3.1.1, minimatch@^3.1.2:
+minimatch@^3.1.2:
   version "3.1.2"
   dependencies:
     brace-expansion "^1.1.7"
@@ -1882,36 +1465,16 @@ minimatch@^9.0.4:
   dependencies:
     brace-expansion "^2.0.1"
 
-minipass@^3.0.0:
-  version "3.3.6"
-  dependencies:
-    yallist "^4.0.0"
-
-minipass@^5.0.0:
-  version "5.0.0"
-
 minipass@^7.0.4, minipass@^7.1.2:
   version "7.1.2"
-
-minizlib@^2.1.1:
-  version "2.1.2"
-  dependencies:
-    minipass "^3.0.0"
-    yallist "^4.0.0"
 
 minizlib@^3.1.0:
   version "3.1.0"
   dependencies:
     minipass "^7.1.2"
 
-mkdirp@^1.0.3:
-  version "1.0.4"
-
 ms@^2.1.3:
   version "2.1.3"
-
-nan@^2.17.0:
-  version "2.20.0"
 
 nanoid@^3.3.17:
   version "3.3.18"
@@ -1921,34 +1484,11 @@ nanoid@^3.3.17:
 natural-compare@^1.4.0:
   version "1.4.0"
 
-node-fetch@^2.6.7:
-  version "2.7.0"
-  dependencies:
-    whatwg-url "^5.0.0"
-
 node-releases@^2.0.18:
   version "2.0.18"
 
-nopt@^5.0.0:
-  version "5.0.0"
-  dependencies:
-    abbrev "1"
-
-npmlog@^5.0.1:
-  version "5.0.1"
-  dependencies:
-    are-we-there-yet "^2.0.0"
-    console-control-strings "^1.1.0"
-    gauge "^3.0.0"
-    set-blocking "^2.0.0"
-
 object-assign@^4.1.1:
   version "4.1.1"
-
-once@^1.3.0, once@^1.3.1:
-  version "1.4.0"
-  dependencies:
-    wrappy "1"
 
 optionator@^0.9.3:
   version "0.9.4"
@@ -1986,9 +1526,6 @@ parse-json@^5.0.0:
 path-exists@^4.0.0:
   version "4.0.0"
 
-path-is-absolute@^1.0.0:
-  version "1.0.1"
-
 path-key@^3.1.0:
   version "3.1.1"
 
@@ -1997,17 +1534,6 @@ path-parse@^1.0.7:
 
 path-type@^4.0.0:
   version "4.0.0"
-
-path2d-polyfill@^2.0.1:
-  version "2.0.1"
-
-"pdfjs-dist@^2.16.105 || ^3.0.279", pdfjs-dist@3.4.120:
-  version "3.4.120"
-  dependencies:
-    path2d-polyfill "^2.0.1"
-    web-streams-polyfill "^3.2.1"
-  optionalDependencies:
-    canvas "^2.11.0"
 
 picocolors@^1.0.0, picocolors@^1.0.1, picocolors@^1.1.1:
   version "1.1.1"
@@ -2047,14 +1573,7 @@ punycode@^2.1.0:
 queue-microtask@^1.2.2:
   version "1.2.3"
 
-quickjs-emscripten-core@0.32.0:
-  version "0.32.0"
-  resolved "https://registry.npmjs.org/quickjs-emscripten-core/-/quickjs-emscripten-core-0.32.0.tgz"
-  integrity sha512-QFnPfjFey8EqknSrSxe1hZrf1/8z7/6s1QzGOmKo6++02r7QRRX7ZoyNaZh7JuVjWsVW87KnQrbZqnHkOAzUyg==
-  dependencies:
-    "@jitl/quickjs-ffi-types" "0.32.0"
-
-"react-dom@^17.0.0 || ^18.0.0 || ^19.0.0", react-dom@^18.3.1, react-dom@>=16.13, react-dom@>=16.6.0, react-dom@>=16.8, react-dom@>=16.8.0, react-dom@>=18:
+"react-dom@^17.0.0 || ^18.0.0 || ^19.0.0", react-dom@^18.3.1, react-dom@>=16.13, react-dom@>=16.6.0, react-dom@>=16.8, react-dom@>=16.8.0:
   version "18.3.1"
   dependencies:
     loose-envify "^1.1.0"
@@ -2093,17 +1612,10 @@ react-use-measure@^2.1.1:
   dependencies:
     debounce "^1.2.1"
 
-"react@^17.0.0 || ^18.0.0 || ^19.0.0", react@^18.3.1, react@>=16.13, react@>=16.6.0, react@>=16.8, react@>=16.8.0, react@>=18:
+"react@^17.0.0 || ^18.0.0 || ^19.0.0", react@^18.3.1, react@>=16.13, react@>=16.6.0, react@>=16.8, react@>=16.8.0:
   version "18.3.1"
   dependencies:
     loose-envify "^1.1.0"
-
-readable-stream@^3.6.0:
-  version "3.6.2"
-  dependencies:
-    inherits "^2.0.3"
-    string_decoder "^1.1.1"
-    util-deprecate "^1.0.1"
 
 regenerator-runtime@^0.14.0:
   version "0.14.1"
@@ -2120,11 +1632,6 @@ resolve@^1.19.0:
 
 reusify@^1.0.4:
   version "1.0.4"
-
-rimraf@^3.0.2:
-  version "3.0.2"
-  dependencies:
-    glob "^7.1.3"
 
 rollup@^4.20.0:
   version "4.21.3"
@@ -2154,25 +1661,16 @@ run-parallel@^1.1.9:
   dependencies:
     queue-microtask "^1.2.2"
 
-safe-buffer@~5.2.0:
-  version "5.2.1"
-
 scheduler@^0.23.2:
   version "0.23.2"
   dependencies:
     loose-envify "^1.1.0"
 
-semver@^6.0.0:
-  version "6.3.1"
-
 semver@^6.3.1:
   version "6.3.1"
 
-semver@^7.3.5, semver@^7.6.0:
+semver@^7.6.0:
   version "7.6.3"
-
-set-blocking@^2.0.0:
-  version "2.0.0"
 
 shebang-command@^2.0.0:
   version "2.0.0"
@@ -2182,36 +1680,11 @@ shebang-command@^2.0.0:
 shebang-regex@^3.0.0:
   version "3.0.0"
 
-signal-exit@^3.0.0:
-  version "3.0.7"
-
-simple-concat@^1.0.0:
-  version "1.0.1"
-
-simple-get@^3.0.3:
-  version "3.1.1"
-  dependencies:
-    decompress-response "^4.2.0"
-    once "^1.3.1"
-    simple-concat "^1.0.0"
-
 source-map-js@^1.2.1:
   version "1.2.1"
 
 source-map@^0.5.7:
   version "0.5.7"
-
-string_decoder@^1.1.1:
-  version "1.3.0"
-  dependencies:
-    safe-buffer "~5.2.0"
-
-"string-width@^1.0.2 || 2 || 3 || 4", string-width@^4.2.3:
-  version "4.2.3"
-  dependencies:
-    emoji-regex "^8.0.0"
-    is-fullwidth-code-point "^3.0.0"
-    strip-ansi "^6.0.1"
 
 strip-ansi@^6.0.1:
   version "6.0.1"
@@ -2264,16 +1737,6 @@ tailwindcss@^4.1.13, tailwindcss@4.1.13:
 tapable@^2.2.0:
   version "2.2.3"
 
-tar@^6.1.11:
-  version "6.2.1"
-  dependencies:
-    chownr "^2.0.0"
-    fs-minipass "^2.0.0"
-    minipass "^5.0.0"
-    minizlib "^2.1.1"
-    mkdirp "^1.0.3"
-    yallist "^4.0.0"
-
 tar@^7.4.3:
   version "7.5.1"
   dependencies:
@@ -2290,9 +1753,6 @@ to-regex-range@^5.0.1:
   version "5.0.1"
   dependencies:
     is-number "^7.0.0"
-
-tr46@~0.0.3:
-  version "0.0.3"
 
 ts-api-utils@^1.3.0:
   version "1.3.0"
@@ -2326,9 +1786,6 @@ uri-js@^4.2.2:
   dependencies:
     punycode "^2.1.0"
 
-util-deprecate@^1.0.1:
-  version "1.0.2"
-
 "vite@^4.2.0 || ^5.0.0", "vite@^5.2.0 || ^6 || ^7", vite@^5.4.1:
   version "5.4.6"
   dependencies:
@@ -2349,39 +1806,16 @@ vue@>=3.2.0:
     "@vue/server-renderer" "3.5.42"
     "@vue/shared" "3.5.42"
 
-web-streams-polyfill@^3.2.1:
-  version "3.3.3"
-
-webidl-conversions@^3.0.0:
-  version "3.0.1"
-
-whatwg-url@^5.0.0:
-  version "5.0.0"
-  dependencies:
-    tr46 "~0.0.3"
-    webidl-conversions "^3.0.0"
-
 which@^2.0.1:
   version "2.0.2"
   dependencies:
     isexe "^2.0.0"
 
-wide-align@^1.1.2:
-  version "1.1.5"
-  dependencies:
-    string-width "^1.0.2 || 2 || 3 || 4"
-
 word-wrap@^1.2.5:
   version "1.2.5"
 
-wrappy@1:
-  version "1.0.2"
-
 yallist@^3.0.2:
   version "3.1.1"
-
-yallist@^4.0.0:
-  version "4.0.0"
 
 yallist@^5.0.0:
   version "5.0.0"
@@ -2396,8 +1830,3 @@ zimmerframe@^1.1.2:
   version "1.1.5"
   resolved "https://registry.npmjs.org/zimmerframe/-/zimmerframe-1.1.5.tgz"
   integrity sha512-msJxIvYDYcoNL+PJsu+7qmpDWsYmAxTY+2TNYXXF0hzBzBk0BMecOqDOG/EckUoKCuKwObfbugIl8QpqHDXeFA==
-
-zod@^3.23.8:
-  version "3.25.76"
-  resolved "https://registry.npmjs.org/zod/-/zod-3.25.76.tgz"
-  integrity sha512-gzUt/qt81nXsFGKIFcC3YnfEAx5NkunCfnDlvuBSSFS02bcXu4Lmea0AFIUwbLWxWPx3d9p8S5QoaujKcNQxcQ==
